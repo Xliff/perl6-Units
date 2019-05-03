@@ -1,9 +1,10 @@
 use Test;
-use Test::Color sub { :ok("0,255,0 on_64,64,255") };
+#use Test::Color sub { :ok("0,255,0 on_64,64,255") };
 
 plan 6;
 
 use Units <A s V Ω m mi ft>;
+use Units::Metre;
 use Units::Arithmatic;
 
 subtest {

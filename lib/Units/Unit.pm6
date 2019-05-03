@@ -113,7 +113,7 @@ does Singleton[]
   multi method find-unit( Str $lookup ) returns Units::Unit
   {
     my $instance = Units::Unit.instance;
- 
+
     return
       $instance.UNITS.first({ .symbol ~~ $lookup}) ||
       $instance.UNITS.first({ .name ~~ $lookup});
@@ -338,7 +338,6 @@ does Singleton[]
   # normalize a number to a value 0 <= x < 10
   # return the number and the exponent
   sub nv( Cool $value ) is export( :helper )
-    is export( :helper )
       returns Cool
   {
     return 0, 0 if $value == 0;
@@ -348,7 +347,6 @@ does Singleton[]
 
   # see unit-helper.t
   our sub nv3( Cool $value ) is export( :helper )
-    is export( :helper )
       returns Cool
   {
     my $exp = exp3( nexp( $value ) );
@@ -356,7 +354,6 @@ does Singleton[]
   }
 
   our sub nexp( Cool $value ) is export( :helper )
-    is export( :helper )
       returns Int
   {
     my $log = log10($value.abs);
@@ -364,7 +361,6 @@ does Singleton[]
   }
 
   our sub exp3( Int $nexp ) is export( :helper )
-    is export( :helper )
       returns Int
   {
     return $nexp + (-1, 1, 0, -1, 1)[ ($nexp % 3) + 2];

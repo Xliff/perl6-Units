@@ -1,6 +1,7 @@
 use Test;
-use Test::Color sub { :ok("0,255,0 on_64,64,255") };
+#use Test::Color sub { :ok("0,255,0 on_64,64,255") };
 use Units <ft ly K °C °F>;
+use Units::Metre;
 
 plan 6;
 

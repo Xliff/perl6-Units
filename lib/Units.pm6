@@ -8,13 +8,13 @@ module Units
 
   sub register-units
   {
-    say "register-units";
+    say "register-units" if $*ENV<DEBUG_UNITS>;
 
     my %def_units;
 
     for find-plugins() -> $plugin
     {
-      say "registering ", $plugin.^name;
+      say "registering ", $plugin.^name if $*ENV<DEBUG_UNITS>;;
       try {
         Units::Unit.instance.UNITS.push( $plugin.new );
         CATCH { die "Cannot register unit <{ $plugin.^name }>\n$_" }
@@ -28,7 +28,7 @@ module Units
       }
     }
 
-    say "done registering";
+    say "done registering" if $*ENV<DEBUG_UNITS>;
   }
 
   sub find-plugins returns UnitArray
